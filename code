@@ -1,0 +1,313 @@
+import math
+
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b
+
+def true_div(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+def floor_div(a, b):
+    try:
+        return a // b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+def exponentiate(x, y):
+    return x ** y
+
+def mod(a, b):
+    try:
+        return a % b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+def fact():
+    try:
+        a = int(input('Enter a non-negative integer: '))
+        if a < 0:
+            return "Error! Factorial of negative numbers is not defined."
+        result = math.factorial(a)
+        return result
+    except ValueError:
+        return "Invalid input! Please enter a valid integer."
+
+def sqrt():
+    try:
+        a = float(input('Enter a non-negative number: '))
+        if a < 0:
+            return "Error! Square root of negative numbers is not defined."
+        return math.sqrt(a)
+    except ValueError:
+        return "Invalid input! Please enter a valid number."
+
+def main():
+    print("Select operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. True Division")
+    print("5. Floor Division")
+    print("6. Exponentiation")
+    print("7. Modulus")
+    print("8. Factorial")
+    print("9. Square Root")
+
+    while True:
+        choice = input("Enter choice (1/2/3/4/5/6/7/8/9): ")
+
+        if choice in ('1', '2', '3', '4', '5', '6', '7'):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+
+                if choice == '1':
+                    print("Result:", add(num1, num2))
+                elif choice == '2':
+                    print("Result:", sub(num1, num2))
+                elif choice == '3':
+                    print("Result:", mul(num1, num2))
+                elif choice == '4':
+                    print("Result:", true_div(num1, num2))
+                elif choice == '5':
+                    print("Result:", floor_div(num1, num2))
+                elif choice == '6':
+                    print("Result:", exponentiate(num1, num2))
+                elif choice == '7':
+                    print("Result:", mod(num1, num2))
+            except ValueError:
+                print("Invalid input! Please enter numeric values.")
+
+        elif choice == '8':
+            print("Result:", fact())
+
+        elif choice == '9':
+            print("Result:", sqrt())
+
+        else:
+            print("Invalid Input")
+
+        another_calculation = input("Do you want to perform another calculation? (yes/no): ").strip().lower()
+        if another_calculation != 'yes':
+            break
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+. Importing the math Module
+
+python
+
+import math
+
+    Purpose: This imports the math module, which provides mathematical functions like factorial and square root that are used in this program.
+
+2. Function Definitions
+
+Each function performs a specific mathematical operation:
+Addition
+
+python
+
+def add(a, b):
+    return a + b
+
+    Purpose: Adds two numbers a and b and returns the result.
+
+Subtraction
+
+python
+
+def sub(a, b):
+    return a - b
+
+    Purpose: Subtracts the second number b from the first number a and returns the result.
+
+Multiplication
+
+python
+
+def mul(a, b):
+    return a * b
+
+    Purpose: Multiplies two numbers a and b and returns the result.
+
+True Division
+
+python
+
+def true_div(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+    Purpose: Divides a by b and returns the result. Handles division by zero using a try-except block to catch and return an error message.
+
+Floor Division
+
+python
+
+def floor_div(a, b):
+    try:
+        return a // b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+    Purpose: Performs floor division (integer division) of a by b. Uses a try-except block to handle division by zero.
+
+Exponentiation
+
+python
+
+def exponentiate(x, y):
+    return x ** y
+
+    Purpose: Raises x to the power of y and returns the result.
+
+Modulus
+
+python
+
+def mod(a, b):
+    try:
+        return a % b
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+    Purpose: Returns the remainder of the division of a by b. Handles division by zero using a try-except block.
+
+Factorial
+
+python
+
+def fact():
+    try:
+        a = int(input('Enter a non-negative integer: '))
+        if a < 0:
+            return "Error! Factorial of negative numbers is not defined."
+        result = math.factorial(a)
+        return result
+    except ValueError:
+        return "Invalid input! Please enter a valid integer."
+
+    Purpose: Calculates the factorial of a non-negative integer. Prompts the user for input and checks if it is valid. Handles errors if the input is not an integer or if the integer is negative.
+
+Square Root
+
+python
+
+def sqrt():
+    try:
+        a = float(input('Enter a non-negative number: '))
+        if a < 0:
+            return "Error! Square root of negative numbers is not defined."
+        return math.sqrt(a)
+    except ValueError:
+        return "Invalid input! Please enter a valid number."
+
+    Purpose: Calculates the square root of a non-negative number. Prompts the user for input and checks if it is valid. Handles errors if the input is not a number or if the number is negative.
+
+3. Main Function
+
+The main() function drives the calculator’s user interface:
+
+python
+
+def main():
+    print("Select operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. True Division")
+    print("5. Floor Division")
+    print("6. Exponentiation")
+    print("7. Modulus")
+    print("8. Factorial")
+    print("9. Square Root")
+
+    Purpose: Displays a menu of available operations.
+
+Main Loop
+
+python
+
+    while True:
+        choice = input("Enter choice (1/2/3/4/5/6/7/8/9): ")
+
+    Purpose: Repeatedly asks the user to select an operation until they choose to exit.
+
+python
+
+        if choice in ('1', '2', '3', '4', '5', '6', '7'):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+
+    Purpose: For operations that require two numbers, prompts the user to enter them and attempts to perform the selected operation.
+
+python
+
+                if choice == '1':
+                    print("Result:", add(num1, num2))
+                elif choice == '2':
+                    print("Result:", sub(num1, num2))
+                elif choice == '3':
+                    print("Result:", mul(num1, num2))
+                elif choice == '4':
+                    print("Result:", true_div(num1, num2))
+                elif choice == '5':
+                    print("Result:", floor_div(num1, num2))
+                elif choice == '6':
+                    print("Result:", exponentiate(num1, num2))
+                elif choice == '7':
+                    print("Result:", mod(num1, num2))
+
+    Purpose: Executes the selected arithmetic operation and displays the result.
+
+python
+
+        elif choice == '8':
+            print("Result:", fact())
+        elif choice == '9':
+            print("Result:", sqrt())
+
+    Purpose: Executes the factorial or square root operation and displays the result.
+
+python
+
+        else:
+            print("Invalid Input")
+
+    Purpose: Handles invalid choices from the user.
+
+python
+
+        another_calculation = input("Do you want to perform another calculation? (yes/no): ").strip().lower()
+        if another_calculation != 'yes':
+            break
+
+    Purpose: Asks the user if they want to perform another calculation and exits the loop if they input anything other than 'yes'.
+
+4. Execution
+
+python
+
+if __name__ == "__main__":
+    main()
+
+    Purpose: Ensures that main() is called only when the script is run directly, not when imported as a module.
+
+This code provides a simple calculator that can handle various arithmetic operations and special functions like factorial and square root. It includes error handling for invalid inputs and edge cases.
+ChatGPT can make mistakes. Check important info.
